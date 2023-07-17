@@ -48,7 +48,17 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// Write password to the #password input
+function writePassword() {
+  var length = 12; // Set your desired password length here
+  var includeUpperCase = true;
+  var includeNumbers = true;
+  var includeSymbols = true;
 
+  var password = generatePassword(length, includeUpperCase, includeNumbers, includeSymbols);
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
