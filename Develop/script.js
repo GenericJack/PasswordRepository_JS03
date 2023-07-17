@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 // Here we add a function to create a password
-function generatePassword(length, includeUpperCase, includeNumbers, includeSymbols);{
+function generatePassword(length, includeUpperCase, includeNumbers, includeSymbols)  {
     const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numberChars = '01123456789';
@@ -10,11 +10,11 @@ function generatePassword(length, includeUpperCase, includeNumbers, includeSymbo
 
     let charset = lowercaseChars;
 
-    if (includeUppercase) {
+    if (includeUpperCase) {
       charset += numberChars;
     }
 
-    if (icludeNumbers) {
+    if (includeNumbers) {
       charset += numberChars;
     }
     if (includeSymbols) {
@@ -38,19 +38,7 @@ function generatePassword(length, includeUpperCase, includeNumbers, includeSymbo
   
     // Write password to the #password input
 function writePassword() {
-  var length = 12; // Set your desired password length here
-  var includeUpperCase = true;
-  var includeNumbers = true;
-  var includeSymbols = true;
-
-  var password = generatePassword(length, includeUpperCase, includeNumbers, includeSymbols);
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-}
-
-// Write password to the #password input
-function writePassword() {
-  var length = 12; // Set your desired password length here
+  var length = 12; 16
   var includeUpperCase = true;
   var includeNumbers = true;
   var includeSymbols = true;
@@ -61,4 +49,6 @@ function writePassword() {
 }
 
 // Add event listener to generate button
+// Added variable here
+var generateBtn = document.querySelector("#generate")
 generateBtn.addEventListener("click", writePassword);
