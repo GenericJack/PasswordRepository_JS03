@@ -2,13 +2,17 @@
 var generateBtn = document.querySelector("#generate");
 
 // Here we add a function to create a password
-function generatePassword(length, includeUpperCase, includeNumbers, includeSymbols) {
+function generatePassword(length, includeLowercase, includeUpperCase, includeNumbers, includeSymbols) {
   const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
   const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numberChars = '0123456789';
   const symbolChars = '!@#$%^&*()-_=+[]{}|;:,.<>?';
 
-  let charset = lowercaseChars;
+  let charset = '';
+
+  if (includeLowercase) {
+    charset += lowercaseChars;
+  }
 
   if (includeUpperCase) {
     charset += uppercaseChars;
@@ -22,8 +26,9 @@ function generatePassword(length, includeUpperCase, includeNumbers, includeSymbo
     charset += symbolChars;
   }
 
-  if (charset.length === lowercaseChars.length) {
-    charset += uppercaseChars + numberChars + symbolChars;
+  if (charset.length === '') {
+    alert('Please select at least one criteria!');
+    return '';
   }
 
   let password = '';
@@ -37,17 +42,19 @@ function generatePassword(length, includeUpperCase, includeNumbers, includeSymbo
   return password;
 }
   
-    // Write password to the #password input
+// Write password to the #password input
 function writePassword() {
-  var length = 12; 16
-  var includeUpperCase = true;
-  var includeNumbers = true;
-  var includeSymbols = true;
+  const length = document.querySelector("#length").value || 12; // Read password length from input
+  const includeLowercase = document.querySelector("#includeLowercase").checked;
+  const includeUppercase = document.querySelector("#includeUppercase").checked;
+  const includeNumbers = document.querySelector("#includeNumbers").checked;
+  const includeSymbols = document.querySelector("#includeSymbols").checked;
 
-  var password = generatePassword(length, includeUpperCase, includeNumbers, includeSymbols);
+  var password = generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols);
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
+
 
 // Add event listener to generate button
 // Added variable here
