@@ -27,3 +27,6 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
  This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+
+
+ file:///C:/Users/jacks/bootcamp/Password_03JS/PasswordRepository_JS03/index.html
